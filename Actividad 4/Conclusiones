@@ -1,0 +1,80 @@
+# Actividad 4 – Argumentación final
+
+## 1. Resumen de las alternativas desarrolladas
+
+El módulo de orientación del campus se resolvió combinando tres enfoques:
+
+| Enfoque | Actividad | Qué resuelve | Fortaleza | Limitación |
+|---------|-----------|--------------|-----------|------------|
+| **Recursividad (búsqueda jerárquica)** | 1 | Verificar si un aula existe dentro de edificios y salones | Simple, natural para estructuras en árbol | No calcula rutas ni distancias |
+| **Ordenamiento recursivo** | 2 | Ordenar listas de ubicaciones, distancias o prioridades | Divide el problema y reordena de forma clara | Solo organiza datos; no decide el camino |
+| **Grafos + DFS / BFS / A*** | 3 | Modelar el campus y elegir recorridos | Permite comparar criterios de búsqueda | Requiere representar nodos, aristas y (en A*) una heurística |
+
+- **DFS** sirve para comprobar alcanzabilidad (por ejemplo, si un cierre de tramos deja alguna zona aislada).
+- **BFS** entrega la ruta con **menos tramos** (útil para indicar el camino más simple a un visitante).
+- **A*** entrega la ruta de **menor distancia real** cuando se dispone de una heurística admisible (distancia en línea recta).
+
+## 2. Comparación técnica
+
+| Criterio | DFS | BFS | A* |
+|----------|-----|-----|----|
+| Estructura auxiliar | Pila (recursión) | Cola | Cola de prioridad |
+| Qué optimiza | Nada (solo alcanza) | Número de aristas | Distancia (g + h) |
+| Complejidad típica | O(V + E) | O(V + E) | Depende de h; con buena heurística explora menos nodos |
+| Uso ideal en el campus | Verificar conectividad tras un cierre | Ruta “más fácil de seguir” | Ruta más corta en metros |
+| Relación con IA | Exploración exhaustiva | Búsqueda no informada | Búsqueda informada (heurística) |
+
+En el ejemplo Puerta → Auditorio del grafo del campus:
+- BFS: 3 tramos, 260 m  
+- A*: 4 tramos, **245 m** (mejor distancia)
+
+Por tanto, **no hay un único algoritmo “mejor”**: depende del objetivo del usuario.
+
+## 3. Solución recomendada
+
+Se recomienda implementar un **módulo híbrido** con tres capas:
+
+1. **Capa de datos y ordenamiento (recursividad + ordenamiento recursivo)**  
+   - Mantener el catálogo de edificios/aulas.  
+   - Ordenar resultados por nombre, distancia o prioridad cuando se listen opciones.
+
+2. **Capa de conectividad (DFS)**  
+   - Verificar que el grafo siga siendo alcanzable tras cierres temporales (mantenimiento, eventos).
+
+3. **Capa de rutas inteligentes (BFS y A*)**  
+   - **BFS** por defecto cuando el usuario pide “el camino más simple” (menos giros / menos tramos).  
+   - **A*** cuando el usuario pide “la ruta más corta” o cuando el sistema debe optimizar tiempo/distancia.
+
+**Justificación:**  
+- La recursividad resuelve bien la jerarquía edificios → aulas.  
+- El grafo modela la realidad física del campus.  
+- A* aporta la capacidad de búsqueda orientada a meta propia de la IA, usando una heurística admisible.  
+- BFS y DFS cubren casos en los que no se necesita (o no se dispone de) información heurística.
+
+Esta combinación cumple el propósito del caso: **ordenar información, analizar rutas y justificar el recorrido más conveniente según el contexto**.
+
+## 4. Relación con aplicaciones básicas de IA del curso
+
+El curso vincula estructuras de datos y algoritmos con ideas de inteligencia artificial:
+
+- **Búsqueda no informada (BFS, DFS):** base de los agentes que exploran un espacio de estados sin conocimiento adicional.
+- **Búsqueda informada (A*):** introduce el uso de **heurísticas**, concepto central en planificación y resolución de problemas en IA.
+- **Divide y vencerás / recursividad:** patrón que aparece en algoritmos de IA (por ejemplo, en descomposición de problemas o en estructuras tipo árbol de decisión / búsqueda).
+- **Modelado del entorno como grafo:** representación estándar de estados y acciones en agentes inteligentes (navegación, pathfinding, sistemas de recomendación de rutas).
+
+El módulo de orientación del campus es, en la práctica, un **agente de pathfinding** simple: percibe un mapa (grafo), tiene una meta y elige acciones (moverse por aristas) según un criterio (menos tramos o menor distancia).
+
+## 5. Conclusión
+
+La solución más sólida no es elegir un solo algoritmo, sino **integrar**:
+
+- Recursividad para la estructura jerárquica de ubicaciones.  
+- Ordenamiento recursivo para presentar la información de forma útil.  
+- DFS para conectividad.  
+- BFS y A* para rutas, según el criterio del usuario.
+
+Con esta arquitectura el sistema puede justificar por qué recomienda un camino (menos tramos vs. menor distancia) y se alinea con las aplicaciones básicas de IA vistas en el curso: búsqueda, heurísticas y modelado del entorno.
+
+---
+**Responsable de esta actividad:** Gustavo Aarón Cruz Mírez  
+**Fecha:** noviembre 2026
