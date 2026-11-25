@@ -124,10 +124,10 @@ Se incorporarán progresivamente:
 
 | Integrante | Desarrollo asignado | Documentación | Exposición | Evidencia GitHub |
 |---|---|---|---|---|
-| Joseph Gianmarco Soberon Leon | Actividad 1 | Pendiente | Pendiente | Pendiente |
-| Claudio Garcia Perez | Actividad 2 | Pendiente | Pendiente | Pendiente |
-| Percy Daniel Perez Rojas | Actividad 3 | Pendiente | Pendiente | Pendiente |
-| Gustavo Aarón Cruz Mírez | Actividad 4 | Pendiente | Pendiente | Pendiente |
+| Joseph Gianmarco Soberon Leon | Actividad 1 | Realizado | Realizado | Realizado |
+| Claudio Garcia Perez | Actividad 2 | Realizado | Pendiente | Realizado |
+| Percy Daniel Perez Rojas | Actividad 3 | Realizado | Pendiente | Realizado |
+| Gustavo Aarón Cruz Mírez | Actividad 4 | Realizado | Pendiente | Realizado |
 
 Esta matriz se actualizará únicamente cuando se verifiquen los avances reales.
 
