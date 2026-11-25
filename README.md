@@ -133,7 +133,7 @@ Esta matriz se actualizará únicamente cuando se verifiquen los avances reales.
 
 ## 8. Video de exposición
 
-**Enlace de YouTube:** Pendiente de publicación.
+**Enlace de YouTube:** https://youtu.be/bhnAj2t5aPY
 
 El equipo expondrá cómo resolvió el caso, qué decisiones tomó y por qué, con participación de los cuatro integrantes y cámaras encendidas.
 
